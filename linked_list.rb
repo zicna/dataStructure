@@ -35,6 +35,7 @@ class LinkedList
     def initialize(first_node)
       @first_node = first_node
     end
+
     # * reading form linked list data is O(N) time complexity
     def read(index)
         current_index = 0
@@ -63,7 +64,27 @@ class LinkedList
       return nil
     end
 
-    
+    def insert_at_index(index, value)
+      new_node = Node.new(value)
+
+      #  * insertion at begining
+      if index == 0
+        new_node.next_node = first_node
+        self.first_node = new_node
+      return
+      end
+
+      # * inserting anywhere other at begining
+      current_node = first_node
+      current_index = 0 
+       while current_index < (index -1) do
+         current_node = current_node.next_node
+         current_index +=1
+       end
+
+       new_node.next_node = current_node.next_node
+       current_node.next_node = new_node
+    end
 end
 # here we establish connection beetween LinkedList and Node class
 link = LinkedList.new(node_1)
@@ -78,3 +99,20 @@ puts link.read(4)
 # ! checking for possition of ' klub' in our linked list 
 puts ("searching for 'klub': ")
 puts link.index_of(' klub')
+# => 2
+puts link.read(link.index_of(' klub'))
+# => ' klub'
+
+# ! inserting on possition o
+link.insert_at_index(0, "Partizan!")
+puts link.read(0)
+
+# ! inserting at any possition not start
+puts link.read(2)
+# => ' jedan'
+link.insert_at_index(2, "Hello")
+puts link.read(2)
+# => 'Hello'
+puts link.read(3)
+# => ' jedan'
+
