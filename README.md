@@ -5,3 +5,7 @@ ___
 This repository will be used as a place where I will practice newly learned data structures.
 
 ___
+
+### Linked List
+
+

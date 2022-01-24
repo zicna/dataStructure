@@ -1,11 +1,13 @@
 class Node
-
     attr_accessor :data, :next_node
 
     def initialize(data)
       @data = data
     end
 end
+# *  data method returns the node data 
+# * next_node method returns the next node in the link, it serves as node link
+## * it points to another Node instance rather than an actual memory address number
 
 node_1 = Node.new("Samo")
 node_2 = Node.new(" jedan")
@@ -33,7 +35,7 @@ class LinkedList
     def initialize(first_node)
       @first_node = first_node
     end
-
+    # * reading form linked list data is O(N) time complexity
     def read(index)
         current_index = 0
         current_node = first_node
@@ -45,6 +47,9 @@ class LinkedList
         end
         return current_node.data
     end
+
+
+    
 end
 # here we establish connection beetween LinkedList and Node class
 link = LinkedList.new(node_1)
