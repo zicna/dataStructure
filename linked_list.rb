@@ -48,6 +48,20 @@ class LinkedList
         return current_node.data
     end
 
+    # * same as arrays, searching in linked list have O(N) time complexity 
+     def index_of(value)
+      current_node = first_node
+      current_index = 0
+
+      begin
+        if current_node.data == value
+          return current_index
+        end
+        current_node = current_node.next_node
+        current_index += 1
+      end while current_node
+      return nil
+    end
 
     
 end
@@ -60,3 +74,7 @@ puts link.first_node.data
 puts link.first_node.next_node
 
 puts link.read(4)
+
+# ! checking for possition of ' klub' in our linked list 
+puts ("searching for 'klub': ")
+puts link.index_of(' klub')
