@@ -65,6 +65,7 @@ class LinkedList
     end
 
     def insert_at_index(index, value)
+      # * create new node with given value
       new_node = Node.new(value)
 
       #  * insertion at begining
@@ -85,6 +86,24 @@ class LinkedList
        new_node.next_node = current_node.next_node
        current_node.next_node = new_node
     end
+
+    def delete_at_index(index)
+      if index == 0
+        self.first_node = first_node.next_node
+        return 
+      end
+
+      current_node = first_node
+      current_index = 0
+
+      while current_index < (index - 1) do
+        current_node = current_node.next_node
+        current_index += 1
+      end
+      node_after_deleted_node = current_node.next_node.next_node
+      current_node.next_node = node_after_deleted_node
+    end
+
 end
 # here we establish connection beetween LinkedList and Node class
 link = LinkedList.new(node_1)
@@ -115,4 +134,17 @@ puts link.read(2)
 # => 'Hello'
 puts link.read(3)
 # => ' jedan'
+
+# ! deleting at begining
+puts link.read(0)
+# => Partizan!
+link.delete_at_index(0)
+puts link.read(0)
+# => Samo
+# ! deleting anywhere but begining
+puts link.read(1)
+# => Hello
+link.delete_at_index(1)
+puts link.read(1)
+# => jedan
 
