@@ -32,6 +32,15 @@ class DoublyLinkedList
         @first_node = @first_node.next_node
         return removed_node
     end
+
+    def print_from_back
+        current_node = @last_node
+        while !!current_node
+            to_print = current_node.data
+            current_node = current_node.previous_node
+            puts to_print
+        end
+    end
 end
 
 class Queue
@@ -75,7 +84,7 @@ node_2.next_node = node_3
 node_2.previous_node = node_1
 
 node_3.next_node = node_4
-node_3.previous_node = node_3
+node_3.previous_node = node_2
 
 node_4.next_node = node_5
 node_4.previous_node = node_3
@@ -83,4 +92,12 @@ node_4.previous_node = node_3
 node_5.next_node = nil
 node_5.previous_node = node_4
 
-puts("#{node_1.data}", "#{node_1.next_node.data}", "#{node_1.previous_node}")
+# puts("#{node_1.data}", "#{node_1.next_node.data}", "#{node_1.previous_node}")
+
+dll = DoublyLinkedList.new(node_1, node_5)
+puts dll.first_node.data
+puts dll.last_node.data
+
+puts node_1.previous_node ? true : false
+
+dll.print_from_back

@@ -106,7 +106,6 @@ class LinkedList
 
     def print_all
       current_node = @first_node
-      current_index = 0
       while current_node
         to_print = current_node.data
         current_node = current_node.next_node
