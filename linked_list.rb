@@ -138,6 +138,11 @@ class LinkedList
       self.first_node = previous_node
     end
 
+    def delete_middle_node(node)
+      node.data = node.next_node.data
+      node.next_node = node.next_node.next_node
+    end
+
 end
 # here we establish connection beetween LinkedList and Node class
 link = LinkedList.new(node_1)
