@@ -103,7 +103,7 @@ class LinkedList
       node_after_deleted_node = current_node.next_node.next_node
       current_node.next_node = node_after_deleted_node
     end
-# * exercise 1
+    # * exercise 1
     def print_all
       current_node = @first_node
       while current_node
@@ -121,6 +121,21 @@ class LinkedList
         current_node = current_node.next_node
       end
       return last_node
+    end
+    # * exercise 4
+
+    def reverse!
+      previous_node = nil
+      current_node = first_node
+      while current_node
+        next_node = current_node.next_node
+
+        current_node.next_node = previous_node
+
+        previous_node = current_node
+        current_node = next_node
+      end
+      self.first_node = previous_node
     end
 
 end
@@ -167,6 +182,7 @@ link.insert_at_index(0, "Partizan!")
 # puts link.read(1)
 # => jedan
 puts "new method"
+link.reverse!
  puts link.print_all
 
  puts link.last_node.data
