@@ -104,47 +104,58 @@ class LinkedList
       current_node.next_node = node_after_deleted_node
     end
 
+    def print_all
+      current_node = @first_node
+      current_index = 0
+      while current_node
+        to_print = current_node.data
+        current_node = current_node.next_node
+        puts to_print
+      end
+    end
+
 end
 # here we establish connection beetween LinkedList and Node class
 link = LinkedList.new(node_1)
 
-puts link
-puts link.first_node
-puts link.first_node.data
-puts link.first_node.next_node
+# puts link
+# puts link.first_node
+# puts link.first_node.data
+# puts link.first_node.next_node
 
-puts link.read(4)
+# puts link.read(4)
 
 # ! checking for possition of ' klub' in our linked list 
-puts ("searching for 'klub': ")
-puts link.index_of(' klub')
+# puts ("searching for 'klub': ")
+# puts link.index_of(' klub')
 # => 2
-puts link.read(link.index_of(' klub'))
+# puts link.read(link.index_of(' klub'))
 # => ' klub'
 
 # ! inserting on possition o
 link.insert_at_index(0, "Partizan!")
-puts link.read(0)
+# puts link.read(0)
 
 # ! inserting at any possition not start
-puts link.read(2)
+# puts link.read(2)
 # => ' jedan'
-link.insert_at_index(2, "Hello")
-puts link.read(2)
+# link.insert_at_index(2, "Hello")
+# puts link.read(2)
 # => 'Hello'
-puts link.read(3)
+# puts link.read(3)
 # => ' jedan'
 
 # ! deleting at begining
-puts link.read(0)
+# puts link.read(0)
 # => Partizan!
-link.delete_at_index(0)
-puts link.read(0)
+# link.delete_at_index(0)
+# puts link.read(0)
 # => Samo
 # ! deleting anywhere but begining
-puts link.read(1)
+# puts link.read(1)
 # => Hello
-link.delete_at_index(1)
-puts link.read(1)
+# link.delete_at_index(1)
+# puts link.read(1)
 # => jedan
-
+puts "new method"
+ puts link.print_all
