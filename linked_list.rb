@@ -103,7 +103,7 @@ class LinkedList
       node_after_deleted_node = current_node.next_node.next_node
       current_node.next_node = node_after_deleted_node
     end
-
+# * exercise 1
     def print_all
       current_node = @first_node
       while current_node
@@ -111,6 +111,16 @@ class LinkedList
         current_node = current_node.next_node
         puts to_print
       end
+    end
+
+    # * exercise 3 
+    def last_node
+      current_node = @first_node
+      while current_node
+        last_node = current_node
+        current_node = current_node.next_node
+      end
+      return last_node
     end
 
 end
@@ -158,3 +168,5 @@ link.insert_at_index(0, "Partizan!")
 # => jedan
 puts "new method"
  puts link.print_all
+
+ puts link.last_node.data
