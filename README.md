@@ -27,6 +27,18 @@ Command to run this file:
 - perfect data structure for **queue**
 ___
 
+#### Binary Heaps
+
+**Heaps in general**
+- tree data structure
+- special data powers that can be leveraged when we need to keep track of greates or least data element in set
+- Priority Queues (FIFO => first in first out) good implementation of heaps
+<!-- ! found deletion hard to implement in ruby code -->
+**Binary Heaps**
+- they can be max-heap of min-heaps
+- heap is binary tree if two conditions are maintained
+    1. heap condition- value of each node must be greater than it's descendants (root node has the highest value)
+    2. tree must be complete- tree is completely filled with nodes(no nodes are missing). Only in bottom row there can be empty positions as long as there aren't any nodes to the right of these empty positions
  
 
 
