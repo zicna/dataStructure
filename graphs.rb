@@ -15,4 +15,16 @@ class Vertex
         @adjecent_vertices << vertex
         vertex.add_adjecent_vertex(self)
     end
+
+    # * depth-first search 
+    def dfs_traverse(vertex, visited_vertices={})
+        visited_vertices[vertex.value] = true
+        puts vertex.value
+
+        vertex.adjecent_vertices.each do |adjecent_vertex|
+            next if visited_vertices[adjecent_vertex.value]
+            dfs_traverse(adjecent_vertex, visited_vertices)
+        end
+
+    end
 end
